@@ -1,9 +1,15 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_border</item>
     </style>
 
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">18sp</item> <!-- Set the desired text size -->
+        <item name="android:padding">16dp</item> <!-- Set the desired padding -->
+        <item name="android:textColor">@android:color/white</item> <!-- Set the desired text color -->
+        <item name="android:background">@color/green</item> <!-- Set the custom background for the button -->
+    </style>
+
+
 </resources>
