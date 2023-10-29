@@ -1,10 +1,6 @@
-
-//S558615   Chandi Priya Katta
-package com.example.milestone.screens;
+package com.example.FindMyFlat.screens;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
