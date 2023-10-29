@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">milestone</string>
+
+    <string-array name="items">
+        <item>--Select Street--</item>
+        <item>Street 1</item>
+        <item>Street 2</item>
+        <item>Street 3</item>
+        <!-- Add more items as needed -->
+    </string-array>
 </resources>
