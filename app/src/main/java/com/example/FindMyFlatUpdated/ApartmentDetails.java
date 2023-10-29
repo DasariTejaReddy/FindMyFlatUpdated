@@ -1,11 +1,4 @@
-package com.example.FindMyFlatUpdated;
-
-
-
-//  s562901   Hemanth Yalamanchili
-
-
-import static android.os.Build.VERSION_CODES.R;
+package com.example.FindMyFlat.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
