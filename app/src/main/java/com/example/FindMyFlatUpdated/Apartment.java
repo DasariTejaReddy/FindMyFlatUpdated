@@ -1,6 +1,4 @@
-package com.example.FindMyFlatUpdated;
-
-
+package com.example.FindMyFlat.screens;
 public class Apartment {
     private String id;
     private String name;
@@ -30,4 +28,3 @@ public class Apartment {
         return imageResource;
     }
 }
-
