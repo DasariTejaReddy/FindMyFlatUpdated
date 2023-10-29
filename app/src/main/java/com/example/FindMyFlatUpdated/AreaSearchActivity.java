@@ -1,89 +1,58 @@
-// S558568   Premchand Are
+package com.example.FindMyFlat.screens;
 
-package com.example.milestone.screens;
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
 
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 
-import android.content.Intent;
-import android.view.View;
-import android.os.Bundle;
-import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Button;
 
 import com.example.milestone.R;
 
-public class AreaSearchActivity extends AppCompatActivity {
-    private Spinner spinner;
-    private ImageView imageView;
+import java.util.ArrayList;
+import java.util.List;
 
-    private Button myButton;
-    private TextView descriptionTextView;
+public class ApartmentsView extends AppCompatActivity {
+    private List<Apartment> apartmentList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_area_search);
+        setContentView(R.layout.activity_apartments_view);
 
-        spinner = findViewById(R.id.spinner);
-        imageView = findViewById(R.id.imageView);
-        descriptionTextView = findViewById(R.id.descriptionTextView);
-        myButton = findViewById(R.id.myButton);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setTitle("");
 
-        descriptionTextView.setText("");
-        spinner.setSelection(-1);
-
-        myButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to the ApartmentsView activity
-                Intent intent = new Intent(AreaSearchActivity.this, ApartmentsView.class);
-                startActivity(intent);
-            }
-        });
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.items, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = parent.getItemAtPosition(position).toString();
-                // Logic to display the corresponding image based on the selected item
-                if (selectedItem.equals("Street 1")) {
-                    imageView.setImageResource(R.drawable.image1);
-                    descriptionTextView.setText("Maple Street: A warm embrace for newcomers, where neighbors become friends.");
-                    myButton.setVisibility(View.VISIBLE);
-                } else if (selectedItem.equals("Street 2")) {
-                    imageView.setImageResource(R.drawable.image2);
-                    descriptionTextView.setText("Sunrise Avenue: Where hospitality shines bright, greeting newcomers with open hearts.");
-                    myButton.setVisibility(View.VISIBLE);
-                } else if (selectedItem.equals("Street 3")) {
-                    imageView.setImageResource(R.drawable.image3);
-                    descriptionTextView.setText("Willow Lane: A street of smiles and warm welcomes, where every newcomer feels at home.");
-                    myButton.setVisibility(View.VISIBLE);
-                } else {
-                    descriptionTextView.setText("");
-                    myButton.setVisibility(View.GONE);
-                    imageView.setImageDrawable(null);
-                }
-                // Add more conditions as needed for other items
-            }
+        }
 
 
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //myButton.setVisibility(View.GONE);
-            }
-        });
+
+        // Populate the list of apartments with data
+        apartmentList.add(new Apartment("Park", "Parkway Apartments", "$1000", R.drawable.apartment1));
+        apartmentList.add(new Apartment("Loca", "Locarna Apartments", "$1200", R.drawable.apartment2));
+        apartmentList.add(new Apartment("Vill", "Village O Apartments", "$1500", R.drawable.apartment3));
+
+
+        // Set up the RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.apartmentsRecyclerView);
+        ApartmentAdapter adapter = new ApartmentAdapter(this, apartmentList); // Add this line
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button press
+        super.onBackPressed(); // Optional, remove this line if you want to override the back button functionality
+    }
+
 }
