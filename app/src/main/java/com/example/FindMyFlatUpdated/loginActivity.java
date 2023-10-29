@@ -1,13 +1,10 @@
-
-//S547444 Teja Reddy Dasari
-package com.example.milestone.screens;
+package com.example.FindMyFlat.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.Button;
 
 import android.os.Bundle;
 
@@ -26,7 +23,7 @@ public class loginActivity extends AppCompatActivity {
                 // Handle login logic here if needed
 
                 // Launch the AreaSearchActivity
-                // Intent areaSearchIntent = new Intent(loginActivity.this, AreaSearchActivity.class);
+               // Intent areaSearchIntent = new Intent(loginActivity.this, AreaSearchActivity.class);
                 Intent areaSearchIntent = new Intent(loginActivity.this, AreaSearchActivity.class);
                 startActivity(areaSearchIntent);
             }
