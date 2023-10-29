@@ -1,7 +1,6 @@
-package com.example.FindMyFlatUpdated;
+package com.example.FindMyFlat.screens;
 
-
-
+import com.example.milestone.R;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,6 @@ import android.content.Context;
 
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myapplication.R;
-
 import java.util.List;
 
 public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.ViewHolder> {
@@ -76,4 +72,3 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
         context.startActivity(intent);
     }
 }
-
