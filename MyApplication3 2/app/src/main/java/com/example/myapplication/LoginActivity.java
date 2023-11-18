@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.login_button);
 
         signupRedirectText = findViewById(R.id.signupRedirectText);
-
+        // This method is called when the loginButton is clicked
         loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
             public void onClick(View view) {
 
-
+                // Creating a new Intent to navigate from the current LoginActivity to the SignupActivity
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
 
 
@@ -98,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public Boolean validateUsername() {
 
+         // Retrieving the text entered in the loginUsername EditText and converting it to a String
         String val = loginUsername.getText().toString();
 
         if (val.isEmpty()) {
@@ -142,6 +143,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Query checkUserDatabase = reference.orderByChild("username").equalTo(userUsername);
 
+         // Adding a listener to check the user database for a single value event
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -164,14 +166,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
                         String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
+                        
+                        //Creating a  Intent to navigate from the current LoginActivity to the AreaSearch activity
+                       Intent intent = new Intent(LoginActivity.this, AreaSearch.class);
 
 
-                        Intent intent = new Intent(LoginActivity.this, AreaSearch.class);
-
-
-
-
-                        intent.putExtra("name", nameFromDB);
+                         // Adding extra information to the Intent before starting the new activity
+                          intent.putExtra("name", nameFromDB);
 
 
                         intent.putExtra("email", emailFromDB);
@@ -181,7 +182,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         intent.putExtra("password", passwordFromDB);
 
-
+                        // Initiating the start of a new activity using the previously created Intent
                         startActivity(intent);
 
                     } 
@@ -189,12 +190,11 @@ public class LoginActivity extends AppCompatActivity {
                     else
                     
                      {
-
-
+                        // Setting an error message for the password input field in case of invalid login credentials
                         loginPassword.setError("Invalid Credentials");
 
-
-                        loginPassword.requestFocus();
+                     // Requesting focus on the password input field after displaying an error message
+                       loginPassword.requestFocus();
 
                     }
 
@@ -212,7 +212,7 @@ public class LoginActivity extends AppCompatActivity {
 
             public void onCancelled(@NonNull DatabaseError error) {
 
-                
+
             }
 
         });
