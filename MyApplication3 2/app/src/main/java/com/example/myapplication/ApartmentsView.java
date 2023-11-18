@@ -1,13 +1,19 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
+
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import androidx.appcompat.widget.Toolbar;
+
 import androidx.appcompat.app.ActionBar;
 
 
@@ -15,54 +21,85 @@ import androidx.appcompat.app.ActionBar;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
-public class ApartmentsView extends AppCompatActivity {
+public class ApartmentsView extends AppCompatActivity
+ {
+
     private List<Apartment> apartmentList = new ArrayList<>();
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) // declared on create method
+    {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_apartments_view);
+
         int selectedItemIndex = getIntent().getIntExtra("SELECTED_ITEM_INDEX", -1);
 
+
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
+
+        ActionBar actionBar = getSupportActionBar();// created the object 
+
         if (actionBar != null) {
+
             actionBar.setDisplayHomeAsUpEnabled(true);
+
             actionBar.setDisplayShowHomeEnabled(true);
+
             actionBar.setTitle("");
 
         }
 
         // Determine which apartment list to use based on the selectedItemIndex
-        switch (selectedItemIndex) {
+        switch (selectedItemIndex) {// switch case
+
             case 1:
+
                 populateApartmentList1();
+
                 break;
+
             case 2:
+
                 populateApartmentList2();
+
                 break;
+
             case 3:
+
                 populateApartmentList3();
+
                 break;
+
             default:
+
                 // Handle the case when selectedItemIndex is not valid
                 break;
+
         }
 
 
         // Set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.apartmentsRecyclerView);
-        ApartmentAdapter adapter = new ApartmentAdapter(this, apartmentList); // Add this line
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        ApartmentAdapter adapter = new ApartmentAdapter(this, apartmentList); // Declaring adapter
+
+        recyclerView.setAdapter(adapter);// setting the adapter
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));// setting the layout manager
 
     }
 
-    private void populateApartmentList1() {
+    private void populateApartmentList1() 
+    {
         // Populate apartmentList1 with data
+
         apartmentList.add(new Apartment("Park", "Parkway Apartments", "$1000", "1200sqft", "Description: \n" +
                 "Chic city living awaits in this contemporary apartment featuring sleek design, high-end finishes, and ample natural light. \n" +
                 "With an open-concept layout, the space seamlessly blends modern aesthetics with comfort", "Contact Details: For more information or to schedule a viewing, please contact us at 123-456-7890 or email us at example@example.com.", "123 Main Street, Cityville, State 12345", R.drawable.apartment1));
@@ -106,8 +143,10 @@ public class ApartmentsView extends AppCompatActivity {
 
     }
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+     {
         // Handle the back button press
+
         super.onBackPressed(); // Optional, remove this line if you want to override the back button functionality
     }
 
