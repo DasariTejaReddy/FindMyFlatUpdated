@@ -50,6 +50,7 @@ public class ApartmentDetails extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent != null) {
+            //here we give the apartment details like name,price,size cost etc...
 
             apartmentName = intent.getStringExtra("APARTMENT_NAME");
 
@@ -69,6 +70,7 @@ public class ApartmentDetails extends AppCompatActivity {
             // For example, set them to TextViews or ImageViews in your layout
 
         }
+        // here we created text views and image views for our layout which used to display the code
         TextView apartmentNameTextView = findViewById(R.id.apartmentName);
 
         TextView apartmentPriceTextView = findViewById(R.id.apartmentPrice);
@@ -121,6 +123,6 @@ public class ApartmentDetails extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-        
+
     }
 }
