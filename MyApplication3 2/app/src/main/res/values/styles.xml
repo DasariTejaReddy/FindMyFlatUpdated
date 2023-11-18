@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_border</item>
+    </style>
+
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">18sp</item> <!-- Set the desired text size -->
+        <item name="android:padding">16dp</item> <!-- Set the desired padding -->
+        <item name="android:textColor">@android:color/white</item> <!-- Set the desired text color -->
+        <item name="android:background">@color/green</item> <!-- Set the custom background for the button -->
+    </style>
+
+
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string-array name="items">
+        <item>--Select Street--</item>
+        <item>Maple Street</item>
+        <item>Sunrise Avenue</item>
+        <item>Willow Lane</item>
+        <!-- Add more items as needed -->
+    </string-array>
+</resources>
