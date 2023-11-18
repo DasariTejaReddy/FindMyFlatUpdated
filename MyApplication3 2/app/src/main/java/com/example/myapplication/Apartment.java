@@ -84,5 +84,6 @@ public class Apartment {
         return imageResource;
 
     }
+
     
 }
