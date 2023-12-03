@@ -29,6 +29,8 @@ An Android application for finding available rental properties. Integrated with 
 - password - prem1234
 - username - k
 - password - k
+- username -prasad
+- password - prasad
 
 ### Installation
 
